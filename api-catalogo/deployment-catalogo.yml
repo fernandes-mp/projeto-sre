@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: catalogo
+spec: 
+  replicas: 2
+  selector: 
+    matchLabels: 
+      app: catalogo
+  template: 
+    metadata: 
+      labels: 
+        app: catalogo
+    spec:
+      containers:
+      - name: catalogo
+        image: marcospffernandes/api-catalogo
+        resources: 
+          limits: 
+            memory: "128Mi"
+            cpu: "250m"
+        ports: 
+          - containerPort: 5001
+        envFrom:
+          - configMapRef:
+             name: api-configmap 

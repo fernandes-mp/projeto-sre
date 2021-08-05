@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: api-configmap
+data:
+  KUBERDS: "mpleo.cxycaymkd24m.us-east-1.rds.amazonaws.com"
+  KUBELB: "a4eb386d0d28e4ffe8ad1ba3a3974d18-b15f060d5871fa76.elb.us-east-1.amazonaws.com"
+  KUBEUSER: "admin"
+  KUBEPASS: "12345678"

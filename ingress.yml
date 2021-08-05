@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-lb
+  labels:
+    app: ingress-lb
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: clientes
+                port:
+                  number: 5000
+          - path: /catalogo
+            pathType: Prefix
+            backend:
+              service:
+                name: catalogo
+                port:
+                  number: 5001
+          - path: /inventario
+            pathType: Prefix
+            backend:
+              service:
+                name: inventario
+                port:
+                  number: 5002
